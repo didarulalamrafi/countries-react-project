@@ -1,11 +1,20 @@
-import React from "react";
+import React, { use } from "react";
+import Country from "./Country/Country";
 
-const countris = () => {
+const Countries = ({ countriesPromise }) => {
+  const countris = use(countriesPromise);
+  const countiesData = countris.countries;
+  //   console.log(countiesData);
   return (
     <div>
-      <h1>Countris</h1>
+      <h1>Countries : {countiesData.length}</h1>
+      <div className="cards">
+        {countiesData.map((country) => (
+          <Country key={country.ccn3.ccn3} country={country}></Country>
+        ))}
+      </div>
     </div>
   );
 };
 
-export default countris;
+export default Countries;
