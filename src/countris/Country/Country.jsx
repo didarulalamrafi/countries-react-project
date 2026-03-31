@@ -1,25 +1,26 @@
 import React, { useState } from "react";
 
-const Country = ({ country }) => {
+const Country = ({ country, vistiedHandler, flagsHandler }) => {
   // console.log(country);
   const [vistied, setVisited] = useState(false);
   const vistedCountry = () => {
     // 1st system
     // if (vistied) {
-    //   setVisited(false);
+      //   setVisited(false);
     // } else {
-    //   setVisited(true);
+      //   setVisited(true);
     // }
 
     // 2nd system
     // setVisited(vistied ? false : true);
-
+    
     // 3rd and easy system
     setVisited(!vistied);
+    vistiedHandler(country)
   };
   return (
     <div className={`card ${vistied && "visited-country"}`}>
-      <img src={country.flags.flags.png} alt={country.flags.flags.alt} />
+      <img src={country?.flags?.flags?.png} alt={country.flags.flags.alt} />
       <div className="card-info" id="text-position">
         <h5 className="margin0">Name: {country.name.common}</h5>
         <h5 className="margin0">Population: {country.population.population}</h5>
@@ -34,6 +35,8 @@ const Country = ({ country }) => {
         <button onClick={vistedCountry}>
           {vistied ? "Visited" : "Not Visited"}
         </button>
+        <br /> 
+        <button onClick={()=>{flagsHandler(country?.flags?.flags?.png)}}>Add Visited</button>
       </div>
     </div>
   );

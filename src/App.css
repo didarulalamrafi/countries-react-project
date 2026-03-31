@@ -33,3 +33,11 @@
 .visited-country{
     background-color: white;
 }
+
+.flag img{
+    /* display: flex;
+    flex-wrap: wrap; */
+    /* gap: 20px; */
+    width: 120px;
+    margin-right: 10px;
+}
